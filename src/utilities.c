@@ -290,7 +290,7 @@ void _checknames(SEXP filename, SEXP indexname, SEXP filemode)
 
 void _checkparams(SEXP regions, SEXP keepFlags, SEXP isSimpleCigar)
 {
-    const int MAX_CHRLEN = 1 << 29;	/* See samtools/bam_index.c */
+    const int MAX_CHRLEN = 2147483647;	/* See samtools/bam_index.c */
     if (R_NilValue != regions) {
         if (!IS_VECTOR(regions) || LENGTH(regions) != 3)
             Rf_error("'regions' must be list(3) or NULL");
